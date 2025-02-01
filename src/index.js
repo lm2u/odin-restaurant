@@ -1,10 +1,23 @@
 import "./styles.css";
-import locationImg from './location.svg';
-import mailImg from './mail.svg';
-import phoneImg from './phone.svg';
-import overlayImg from './phone-overlay.png';
 import loadHome from "./components/loadHome";
 import loadMenu from "./components/loadMenu";
+import loadContact from "./components/loadContact";
 
-loadHome();
-loadMenu();
+document.addEventListener("click",(e)=>{
+  clearContent()
+  const btnClass = e.target.className
+  if (btnClass === "home") {
+    loadHome();
+  }
+  if (btnClass === "menu") {
+    loadMenu();
+  }
+  if (btnClass === "contact") {
+    loadContact();
+  }
+})
+
+function clearContent(){
+  const main = document.getElementById("content")
+  main.innerHTML = "";
+}

@@ -14,31 +14,25 @@ function loadContact(){
   const wrapper = document.createElement("div")
   wrapper.setAttribute("class", "contact__wrapper")
 
-  for (let i = 0; i < 3; i++) {
+  const contacts = [
+    {img:phoneImg , alt:"phone" , text:"+123 456 789" },
+    {img:locationImg , alt:"location" , text:"somePlace, abc.123" },
+    {img:mailImg , alt:"mail" , text:"email@address.com" },
+  ]
+
+  contacts.forEach(({img, alt, text}) => {
     const item = document.createElement("div")
     item.setAttribute("class", "contact__item")
-    const img = document.createElement("img")
+    const icon = document.createElement("img")
     const span = document.createElement("span")
-    if(i == 0) {
-      img.src = locationImg;
-      img.alt="location";
-      span.textContent = '+123 456 789';
-    }
-    if(i == 1) {
-      img.src = mailImg;
-      img.alt="mail";
-      span.textContent = 'somePlace, abc.123';
-    }
-    if(i == 2) {
-      img.src = phoneImg;
-      img.alt="phone";
-      span.textContent = 'email@address.com';
-    }
 
-    item.appendChild(img)
-    item.appendChild(span)
+    icon.src = img;
+    icon.alt = alt;
+    span.textContent = text;
+
+    item.append(icon, span)
     wrapper.appendChild(item)
-  }
+  })
 
   contactSection.appendChild(contactTitle)
   contactSection.appendChild(wrapper)

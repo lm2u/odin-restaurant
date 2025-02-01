@@ -2,19 +2,29 @@ import "./styles.css";
 import loadHome from "./components/loadHome";
 import loadMenu from "./components/loadMenu";
 import loadContact from "./components/loadContact";
+import addHover, {setHomeActive} from "./components/addHover"
 
-document.addEventListener("click",(e)=>{
-  clearContent()
-  const btnClass = e.target.className
-  if (btnClass === "home") {
+document.addEventListener("DOMContentLoaded", () => {
+  loadHome();
+  addHover();
+  setHomeActive();
+});
+
+const header = document.querySelector("header")
+
+header.addEventListener("click",(e)=>{
+  const target = e.target.classList[0]
+  if (target === "home" || target === "logo") {
+    clearContent()
     loadHome();
-  }
-  if (btnClass === "menu") {
+  }else if (target === "menu") {
+    clearContent()
     loadMenu();
-  }
-  if (btnClass === "contact") {
+  }else if (target === "contact") {
+    clearContent()
     loadContact();
   }
+
 })
 
 function clearContent(){

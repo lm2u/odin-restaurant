@@ -52,6 +52,7 @@ nav{
 }
 
 .logo{
+  cursor: pointer;
   font-size: 2.5rem;
 }
 
@@ -72,13 +73,11 @@ button::after{
   transition: width .3s;
 }
 
-button:hover::after{
+button:hover::after,
+.active::after{
   width: 100%;
 }
 
-/* button:active::after{
-  width: 100%;
-} */
 
 button + button{
   margin-left: 2rem;

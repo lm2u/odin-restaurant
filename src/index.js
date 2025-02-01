@@ -1,14 +1,14 @@
 import "./styles.css";
+import loadHeader from "./components/loadHeader";
 import loadHome from "./components/loadHome";
 import loadMenu from "./components/loadMenu";
 import loadContact from "./components/loadContact";
 import addHover, {setHomeActive} from "./components/addHover"
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadHome();
-  addHover();
-  setHomeActive();
-});
+loadHeader();
+loadHome();
+addHover();
+setHomeActive();
 
 const header = document.querySelector("header")
 
@@ -26,6 +26,7 @@ header.addEventListener("click",(e)=>{
   }
 
 })
+
 
 function clearContent(){
   const main = document.getElementById("content")
